@@ -162,6 +162,8 @@ const elements = {
 const state = {
   library: structuredClone(DEFAULT_LIBRARY),
   selectedLessonId: DEFAULT_LIBRARY.lessons[0].id,
+  roundLessonId: DEFAULT_LIBRARY.lessons[0].id,
+  roundItems: [],
   playerIndex: 0,
   consumed: new Set(),
   misses: new Set(),
@@ -176,9 +178,7 @@ async function init() {
   state.library = await loadLibrary();
   state.selectedLessonId = state.library.lessons[0].id;
   syncEditor();
-  renderAll();
-  setFeedback("Ready.", "neutral");
-  focusCurrentCell();
+  resetRound();
 }
 
 function bindEvents() {
@@ -436,8 +436,9 @@ function renderLibraryStats() {
 function renderLesson() {
   const lesson = getCurrentLesson();
   if (!lesson) return;
+  const items = getRoundItems(lesson);
 
-  const goal = lesson.items.filter((item) => item.correct).length;
+  const goal = items.filter((item) => item.correct).length;
   elements.lessonTitle.textContent = lesson.title;
   elements.lessonPrompt.textContent = lesson.prompt;
   elements.scoreValue.textContent = String(state.consumed.size);
@@ -447,7 +448,7 @@ function renderLesson() {
   elements.gridBoard.style.setProperty("--cols", lesson.grid.cols);
   elements.gridBoard.innerHTML = "";
 
-  lesson.items.forEach((item, index) => {
+  items.forEach((item, index) => {
     const cell = document.createElement("button");
     cell.className = "cell-button";
     cell.type = "button";
@@ -474,7 +475,7 @@ function renderLesson() {
       state.playerIndex = index;
       state.moves += 1;
       renderLesson();
-      cell.focus();
+      focusCurrentCell();
     });
 
     elements.gridBoard.append(cell);
@@ -524,7 +525,7 @@ function munchCurrentCell() {
   const lesson = getCurrentLesson();
   if (!lesson) return;
 
-  const item = lesson.items[state.playerIndex];
+  const item = getRoundItems(lesson)[state.playerIndex];
   state.tries += 1;
   state.misses.delete(state.playerIndex);
 
@@ -546,7 +547,7 @@ function munchCurrentCell() {
 }
 
 function maybeFinishRound(lesson) {
-  const goal = lesson.items.filter((item) => item.correct).length;
+  const goal = getRoundItems(lesson).filter((item) => item.correct).length;
   if (state.consumed.size === goal) {
     setFeedback(`Complete: ${lesson.title}.`, "done");
   }
@@ -561,6 +562,9 @@ function setFeedback(message, tone) {
 }
 
 function resetRound() {
+  const lesson = getCurrentLesson();
+  state.roundLessonId = lesson ? lesson.id : null;
+  state.roundItems = lesson ? shuffleItems(lesson.items, state.roundItems) : [];
   state.playerIndex = 0;
   state.consumed = new Set();
   state.misses = new Set();
@@ -578,6 +582,42 @@ function focusCurrentCell() {
 
 function getCurrentLesson() {
   return state.library.lessons.find((lesson) => lesson.id === state.selectedLessonId) || state.library.lessons[0];
+}
+
+function getRoundItems(lesson) {
+  if (state.roundLessonId !== lesson.id || state.roundItems.length !== lesson.items.length) {
+    state.roundLessonId = lesson.id;
+    state.roundItems = shuffleItems(lesson.items, state.roundItems);
+  }
+  return state.roundItems;
+}
+
+function shuffleItems(items, previousItems = []) {
+  const shuffled = items.slice();
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+
+  return avoidRepeatedOrder(shuffled, [items, previousItems]);
+}
+
+function avoidRepeatedOrder(shuffled, avoidedOrders) {
+  if (shuffled.length < 2) return shuffled;
+
+  for (let index = 0; index < shuffled.length; index += 1) {
+    const repeatsAvoidedOrder = avoidedOrders.some((items) => sameOrder(shuffled, items));
+    if (!repeatsAvoidedOrder) return shuffled;
+
+    const swapIndex = (index + 1) % shuffled.length;
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+
+  return shuffled;
+}
+
+function sameOrder(left, right) {
+  return left.length === right.length && left.every((item, index) => item === right[index]);
 }
 
 function setMode(mode) {

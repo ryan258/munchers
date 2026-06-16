@@ -1,0 +1,143 @@
+{
+    "id": "mtg-mana-base-math",
+    "title": "Magic: The Gathering Mana Base Math",
+    "mode": "tactical-math",
+    "prompt": "Land counts that provide a 90% probability of having at least 1 untapped source of that color by turn 1 or turn 2 (60-card deck, standard 7-card opening hand)",
+    "targetDescription": "a land count that hits Hypergeometric probability targets for early turns",
+    "grid": {
+        "rows": 5,
+        "cols": 5
+    },
+    "items": [
+        {
+            "label": "14 Sources (T1)",
+            "correct": false,
+            "feedback": "Incorrect. 14 sources gives about 86.1% to have at least one untapped source by Turn 1, which is below the 90% target."
+        },
+        {
+            "label": "15 Sources (T1)",
+            "correct": false,
+            "feedback": "Incorrect. 15 sources gives about 88.2% to have at least one untapped source by Turn 1, which is below the 90% target."
+        },
+        {
+            "label": "13 Sources (T2)",
+            "correct": false,
+            "feedback": "Incorrect. 13 sources gives about 87.7% to have at least one untapped source by Turn 2, which is below the 90% target."
+        },
+        {
+            "label": "14 Sources (T2)",
+            "correct": false,
+            "feedback": "Incorrect. 14 sources gives about 89.8% to have at least one untapped source by Turn 2, which is below the 90% target."
+        },
+        {
+            "label": "12 Sources (T2)",
+            "correct": false,
+            "feedback": "Incorrect. 12 sources gives about 85.3% to have at least one untapped source by Turn 2, which is below the 90% target."
+        },
+        {
+            "label": "10 Sources (T1)",
+            "correct": false,
+            "feedback": "Incorrect. 10 sources gives about 74.1% to have at least one untapped source by Turn 1, which is below the 90% target."
+        },
+        {
+            "label": "11 Sources (T1)",
+            "correct": false,
+            "feedback": "Incorrect. 11 sources gives about 77.8% to have at least one untapped source by Turn 1, which is below the 90% target."
+        },
+        {
+            "label": "12 Sources (T1)",
+            "correct": false,
+            "feedback": "Incorrect. 12 sources gives about 80.9% to have at least one untapped source by Turn 1, which is below the 90% target."
+        },
+        {
+            "label": "13 Sources (T1)",
+            "correct": false,
+            "feedback": "Incorrect. 13 sources gives about 83.7% to have at least one untapped source by Turn 1, which is below the 90% target."
+        },
+        {
+            "label": "16 Sources (T1)",
+            "correct": true,
+            "feedback": "Correct. 16 sources gives about 90.1% to have at least one untapped source by Turn 1, which meets the 90% target."
+        },
+        {
+            "label": "17 Sources (T1)",
+            "correct": true,
+            "feedback": "Correct. 17 sources gives about 91.7% to have at least one untapped source by Turn 1, which meets the 90% target."
+        },
+        {
+            "label": "18 Sources (T1)",
+            "correct": true,
+            "feedback": "Correct. 18 sources gives about 93.0% to have at least one untapped source by Turn 1, which meets the 90% target."
+        },
+        {
+            "label": "9 Sources (T2)",
+            "correct": false,
+            "feedback": "Incorrect. 9 sources gives about 75.1% to have at least one untapped source by Turn 2, which is below the 90% target."
+        },
+        {
+            "label": "10 Sources (T2)",
+            "correct": false,
+            "feedback": "Incorrect. 10 sources gives about 79.0% to have at least one untapped source by Turn 2, which is below the 90% target."
+        },
+        {
+            "label": "11 Sources (T2)",
+            "correct": false,
+            "feedback": "Incorrect. 11 sources gives about 82.4% to have at least one untapped source by Turn 2, which is below the 90% target."
+        },
+        {
+            "label": "15 Sources (T2)",
+            "correct": true,
+            "feedback": "Correct. 15 sources gives about 91.6% to have at least one untapped source by Turn 2, which meets the 90% target."
+        },
+        {
+            "label": "16 Sources (T2)",
+            "correct": true,
+            "feedback": "Correct. 16 sources gives about 93.1% to have at least one untapped source by Turn 2, which meets the 90% target."
+        },
+        {
+            "label": "8 Sources (T1)",
+            "correct": false,
+            "feedback": "Incorrect. 8 sources gives about 65.4% to have at least one untapped source by Turn 1, which is below the 90% target."
+        },
+        {
+            "label": "19 Sources (T1)",
+            "correct": true,
+            "feedback": "Correct. 19 sources gives about 94.2% to have at least one untapped source by Turn 1, which meets the 90% target."
+        },
+        {
+            "label": "20 Sources (T1)",
+            "correct": true,
+            "feedback": "Correct. 20 sources gives about 95.2% to have at least one untapped source by Turn 1, which meets the 90% target."
+        },
+        {
+            "label": "6 Sources (T2)",
+            "correct": false,
+            "feedback": "Incorrect. 6 sources gives about 59.3% to have at least one untapped source by Turn 2, which is below the 90% target."
+        },
+        {
+            "label": "7 Sources (T2)",
+            "correct": false,
+            "feedback": "Incorrect. 7 sources gives about 65.4% to have at least one untapped source by Turn 2, which is below the 90% target."
+        },
+        {
+            "label": "8 Sources (T2)",
+            "correct": false,
+            "feedback": "Incorrect. 8 sources gives about 70.6% to have at least one untapped source by Turn 2, which is below the 90% target."
+        },
+        {
+            "label": "17 Sources (T2)",
+            "correct": true,
+            "feedback": "Correct. 17 sources gives about 94.3% to have at least one untapped source by Turn 2, which meets the 90% target."
+        },
+        {
+            "label": "18 Sources (T2)",
+            "correct": true,
+            "feedback": "Correct. 18 sources gives about 95.4% to have at least one untapped source by Turn 2, which meets the 90% target."
+        }
+    ],
+    "reflectionPrompts": [
+        "With a strict hypergeometric 90% target in a 60-card deck, you need 16 untapped sources for Turn 1 plays from a 7-card opening hand.",
+        "For Turn 2 plays on the play, seeing 8 cards total lets you drop the 90% threshold to 15 untapped sources.",
+        "Using 14 sources for Turn 1 or 13 to 14 for Turn 2 may be a rule of thumb in some deckbuilding guides, but those counts do not hit a strict 90% probability target."
+    ]
+}
