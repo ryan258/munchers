@@ -1,0 +1,143 @@
+{
+  "id": "word-evidence",
+  "title": "Evidence Words",
+  "mode": "words",
+  "prompt": "Words that signal evidence",
+  "targetDescription": "evidence signal words",
+  "grid": {
+    "rows": 5,
+    "cols": 5
+  },
+  "items": [
+    {
+      "label": "because",
+      "correct": true,
+      "feedback": "Because can introduce support for a claim."
+    },
+    {
+      "label": "maybe",
+      "correct": false,
+      "feedback": "Maybe signals uncertainty, not evidence."
+    },
+    {
+      "label": "data",
+      "correct": true,
+      "feedback": "Data can support reasoning."
+    },
+    {
+      "label": "however",
+      "correct": false,
+      "feedback": "However signals contrast."
+    },
+    {
+      "label": "shown",
+      "correct": true,
+      "feedback": "Shown can point to demonstrated support."
+    },
+    {
+      "label": "therefore",
+      "correct": false,
+      "feedback": "Therefore usually signals a conclusion."
+    },
+    {
+      "label": "example",
+      "correct": true,
+      "feedback": "An example can support a claim."
+    },
+    {
+      "label": "unless",
+      "correct": false,
+      "feedback": "Unless marks a condition."
+    },
+    {
+      "label": "source",
+      "correct": true,
+      "feedback": "A source can provide evidence."
+    },
+    {
+      "label": "although",
+      "correct": false,
+      "feedback": "Although signals contrast."
+    },
+    {
+      "label": "proof",
+      "correct": true,
+      "feedback": "Proof directly names support."
+    },
+    {
+      "label": "opinion",
+      "correct": false,
+      "feedback": "An opinion may need evidence."
+    },
+    {
+      "label": "cited",
+      "correct": true,
+      "feedback": "Cited points to referenced support."
+    },
+    {
+      "label": "later",
+      "correct": false,
+      "feedback": "Later signals time."
+    },
+    {
+      "label": "record",
+      "correct": true,
+      "feedback": "A record can document evidence."
+    },
+    {
+      "label": "beside",
+      "correct": false,
+      "feedback": "Beside signals place."
+    },
+    {
+      "label": "finding",
+      "correct": true,
+      "feedback": "A finding can support a claim."
+    },
+    {
+      "label": "nearly",
+      "correct": false,
+      "feedback": "Nearly signals degree."
+    },
+    {
+      "label": "observed",
+      "correct": true,
+      "feedback": "Observed points to direct evidence."
+    },
+    {
+      "label": "instead",
+      "correct": false,
+      "feedback": "Instead signals replacement or contrast."
+    },
+    {
+      "label": "survey",
+      "correct": true,
+      "feedback": "A survey can provide evidence."
+    },
+    {
+      "label": "before",
+      "correct": false,
+      "feedback": "Before signals time."
+    },
+    {
+      "label": "reported",
+      "correct": true,
+      "feedback": "Reported can introduce sourced information."
+    },
+    {
+      "label": "often",
+      "correct": false,
+      "feedback": "Often signals frequency."
+    },
+    {
+      "label": "according",
+      "correct": true,
+      "feedback": "According to can introduce a source."
+    }
+  ],
+  "reflectionPrompts": [
+    "Evidence words point toward support, sources, examples, or observations.",
+    "Transition words may show contrast, time, or conclusions instead.",
+    "A useful category has a clear rule and useful near-misses."
+  ]
+}

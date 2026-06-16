@@ -1,0 +1,143 @@
+{
+  "id": "number-patterns",
+  "title": "Number Patterns",
+  "mode": "numbers",
+  "prompt": "Multiples of 6",
+  "targetDescription": "multiples of 6",
+  "grid": {
+    "rows": 5,
+    "cols": 5
+  },
+  "items": [
+    {
+      "label": "6",
+      "correct": true,
+      "feedback": "6 is 6 x 1."
+    },
+    {
+      "label": "9",
+      "correct": false,
+      "feedback": "9 is not a multiple of 6."
+    },
+    {
+      "label": "12",
+      "correct": true,
+      "feedback": "12 is 6 x 2."
+    },
+    {
+      "label": "14",
+      "correct": false,
+      "feedback": "14 is between 12 and 18."
+    },
+    {
+      "label": "18",
+      "correct": true,
+      "feedback": "18 is 6 x 3."
+    },
+    {
+      "label": "21",
+      "correct": false,
+      "feedback": "21 is a multiple of 3, not 6."
+    },
+    {
+      "label": "24",
+      "correct": true,
+      "feedback": "24 is 6 x 4."
+    },
+    {
+      "label": "28",
+      "correct": false,
+      "feedback": "28 is not divisible by 6."
+    },
+    {
+      "label": "30",
+      "correct": true,
+      "feedback": "30 is 6 x 5."
+    },
+    {
+      "label": "32",
+      "correct": false,
+      "feedback": "32 is not divisible by 6."
+    },
+    {
+      "label": "36",
+      "correct": true,
+      "feedback": "36 is 6 x 6."
+    },
+    {
+      "label": "39",
+      "correct": false,
+      "feedback": "39 is not even."
+    },
+    {
+      "label": "42",
+      "correct": true,
+      "feedback": "42 is 6 x 7."
+    },
+    {
+      "label": "45",
+      "correct": false,
+      "feedback": "45 is not even."
+    },
+    {
+      "label": "48",
+      "correct": true,
+      "feedback": "48 is 6 x 8."
+    },
+    {
+      "label": "51",
+      "correct": false,
+      "feedback": "51 is not even."
+    },
+    {
+      "label": "54",
+      "correct": true,
+      "feedback": "54 is 6 x 9."
+    },
+    {
+      "label": "57",
+      "correct": false,
+      "feedback": "57 is not even."
+    },
+    {
+      "label": "60",
+      "correct": true,
+      "feedback": "60 is 6 x 10."
+    },
+    {
+      "label": "62",
+      "correct": false,
+      "feedback": "62 is not divisible by 6."
+    },
+    {
+      "label": "66",
+      "correct": true,
+      "feedback": "66 is 6 x 11."
+    },
+    {
+      "label": "70",
+      "correct": false,
+      "feedback": "70 is not divisible by 6."
+    },
+    {
+      "label": "72",
+      "correct": true,
+      "feedback": "72 is 6 x 12."
+    },
+    {
+      "label": "75",
+      "correct": false,
+      "feedback": "75 is not even."
+    },
+    {
+      "label": "78",
+      "correct": true,
+      "feedback": "78 is 6 x 13."
+    }
+  ],
+  "reflectionPrompts": [
+    "Multiples of 6 are even.",
+    "Every second multiple of 3 is also a multiple of 6.",
+    "A number divisible by 6 must be divisible by 2 and 3."
+  ]
+}

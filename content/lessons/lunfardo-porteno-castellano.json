@@ -1,0 +1,143 @@
+{
+  "id": "lunfardo-porteno-castellano",
+  "title": "Lunfardo Porteno",
+  "mode": "lunfardo",
+  "prompt": "Correct Lunfardo -> Castellano meanings",
+  "targetDescription": "correct Lunfardo-to-Castellano translations",
+  "grid": {
+    "rows": 5,
+    "cols": 5
+  },
+  "items": [
+    {
+      "label": "laburo = trabajo",
+      "correct": true,
+      "feedback": "Laburo means trabajo."
+    },
+    {
+      "label": "bondi = colectivo",
+      "correct": true,
+      "feedback": "Bondi is a colloquial word for colectivo."
+    },
+    {
+      "label": "guita = dinero",
+      "correct": true,
+      "feedback": "Guita means dinero."
+    },
+    {
+      "label": "pibe = nino",
+      "correct": true,
+      "feedback": "Pibe means nino or joven."
+    },
+    {
+      "label": "mina = mujer",
+      "correct": true,
+      "feedback": "Mina can mean mujer."
+    },
+    {
+      "label": "laburo = descanso",
+      "correct": false,
+      "feedback": "Laburo is trabajo, not descanso."
+    },
+    {
+      "label": "morfi = comida",
+      "correct": true,
+      "feedback": "Morfi means comida."
+    },
+    {
+      "label": "bondi = zapato",
+      "correct": false,
+      "feedback": "Bondi is colectivo, not zapato."
+    },
+    {
+      "label": "fiaca = pereza",
+      "correct": true,
+      "feedback": "Fiaca means pereza or pocas ganas."
+    },
+    {
+      "label": "guita = lluvia",
+      "correct": false,
+      "feedback": "Guita is dinero, not lluvia."
+    },
+    {
+      "label": "quilombo = desorden",
+      "correct": true,
+      "feedback": "Quilombo can mean desorden or lio."
+    },
+    {
+      "label": "pibe = abuelo",
+      "correct": false,
+      "feedback": "Pibe is nino or joven, not abuelo."
+    },
+    {
+      "label": "chamuyo = mentira",
+      "correct": true,
+      "feedback": "Chamuyo can mean speech meant to persuade or mislead."
+    },
+    {
+      "label": "mina = mesa",
+      "correct": false,
+      "feedback": "Mina can mean mujer, not mesa."
+    },
+    {
+      "label": "facha = apariencia",
+      "correct": true,
+      "feedback": "Facha means appearance or look."
+    },
+    {
+      "label": "morfi = transporte",
+      "correct": false,
+      "feedback": "Morfi is comida, not transporte."
+    },
+    {
+      "label": "yuta = policia",
+      "correct": true,
+      "feedback": "Yuta is a colloquial word for policia."
+    },
+    {
+      "label": "fiaca = energia",
+      "correct": false,
+      "feedback": "Fiaca is pereza, not energia."
+    },
+    {
+      "label": "mango = peso",
+      "correct": true,
+      "feedback": "Mango can refer to a peso or money."
+    },
+    {
+      "label": "quilombo = silencio",
+      "correct": false,
+      "feedback": "Quilombo means mess or desorden, not silencio."
+    },
+    {
+      "label": "luca = mil pesos",
+      "correct": true,
+      "feedback": "Luca commonly means one thousand pesos."
+    },
+    {
+      "label": "chamuyo = factura",
+      "correct": false,
+      "feedback": "Chamuyo is talk or misleading speech, not a bill."
+    },
+    {
+      "label": "junar = mirar",
+      "correct": true,
+      "feedback": "Junar can mean mirar, notice, or know."
+    },
+    {
+      "label": "facha = direccion",
+      "correct": false,
+      "feedback": "Facha is appearance, not address."
+    },
+    {
+      "label": "garpar = pagar",
+      "correct": true,
+      "feedback": "Garpar means pagar."
+    }
+  ],
+  "reflectionPrompts": [
+    "Lunfardo often appears inside ordinary Rioplatense Spanish sentences.",
+    "Many useful pairs are about work, money, transit, food, and everyday social life.",
+    "Read both sides of each pair: the wrong answers use real words with wrong meanings."
+  ]
+}

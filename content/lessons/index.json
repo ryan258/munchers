@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "lessons": [
+    "number-patterns.json",
+    "word-evidence.json",
+    "lunfardo-porteno-castellano.json",
+    "us-state-capitals.json"
+  ]
+}

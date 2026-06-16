@@ -1,0 +1,143 @@
+{
+  "id": "us-state-capitals",
+  "title": "US State Capitals",
+  "mode": "geography",
+  "prompt": "Correct US State -> Capital pairs",
+  "targetDescription": "correct US State -> Capital pairs",
+  "grid": {
+    "rows": 5,
+    "cols": 5
+  },
+  "items": [
+    {
+      "label": "CA = Sacramento",
+      "correct": true,
+      "feedback": "Sacramento is the capital of California."
+    },
+    {
+      "label": "CA = Los Angeles",
+      "correct": false,
+      "feedback": "Sacramento is the capital of California; Los Angeles is the largest city."
+    },
+    {
+      "label": "TX = Austin",
+      "correct": true,
+      "feedback": "Austin is the capital of Texas."
+    },
+    {
+      "label": "TX = Houston",
+      "correct": false,
+      "feedback": "Austin is the capital of Texas; Houston is the largest city."
+    },
+    {
+      "label": "FL = Tallahassee",
+      "correct": true,
+      "feedback": "Tallahassee is the capital of Florida."
+    },
+    {
+      "label": "FL = Miami",
+      "correct": false,
+      "feedback": "Tallahassee is the capital of Florida; Miami is the largest city."
+    },
+    {
+      "label": "NY = Albany",
+      "correct": true,
+      "feedback": "Albany is the capital of New York."
+    },
+    {
+      "label": "NY = NYC",
+      "correct": false,
+      "feedback": "Albany is the capital of New York; New York City is the largest city."
+    },
+    {
+      "label": "IL = Springfield",
+      "correct": true,
+      "feedback": "Springfield is the capital of Illinois."
+    },
+    {
+      "label": "IL = Chicago",
+      "correct": false,
+      "feedback": "Springfield is the capital of Illinois; Chicago is the largest city."
+    },
+    {
+      "label": "WA = Olympia",
+      "correct": true,
+      "feedback": "Olympia is the capital of Washington."
+    },
+    {
+      "label": "WA = Seattle",
+      "correct": false,
+      "feedback": "Olympia is the capital of Washington; Seattle is the largest city."
+    },
+    {
+      "label": "PA = Harrisburg",
+      "correct": true,
+      "feedback": "Harrisburg is the capital of Pennsylvania."
+    },
+    {
+      "label": "PA = Philadelphia",
+      "correct": false,
+      "feedback": "Harrisburg is the capital of Pennsylvania; Philadelphia is the largest city."
+    },
+    {
+      "label": "MD = Annapolis",
+      "correct": true,
+      "feedback": "Annapolis is the capital of Maryland."
+    },
+    {
+      "label": "MD = Baltimore",
+      "correct": false,
+      "feedback": "Annapolis is the capital of Maryland; Baltimore is the largest city."
+    },
+    {
+      "label": "NV = Carson City",
+      "correct": true,
+      "feedback": "Carson City is the capital of Nevada."
+    },
+    {
+      "label": "NV = Las Vegas",
+      "correct": false,
+      "feedback": "Carson City is the capital of Nevada; Las Vegas is the largest city."
+    },
+    {
+      "label": "OR = Salem",
+      "correct": true,
+      "feedback": "Salem is the capital of Oregon."
+    },
+    {
+      "label": "OR = Portland",
+      "correct": false,
+      "feedback": "Salem is the capital of Oregon; Portland is the largest city."
+    },
+    {
+      "label": "LA = Baton Rouge",
+      "correct": true,
+      "feedback": "Baton Rouge is the capital of Louisiana."
+    },
+    {
+      "label": "LA = New Orleans",
+      "correct": false,
+      "feedback": "Baton Rouge is the capital of Louisiana; New Orleans is the largest city."
+    },
+    {
+      "label": "GA = Atlanta",
+      "correct": true,
+      "feedback": "Atlanta is the capital and the largest city of Georgia."
+    },
+    {
+      "label": "GA = Savannah",
+      "correct": false,
+      "feedback": "Atlanta is the capital of Georgia; Savannah is a historic port city."
+    },
+    {
+      "label": "AZ = Phoenix",
+      "correct": true,
+      "feedback": "Phoenix is the capital and the largest city of Arizona."
+    }
+  ],
+  "reflectionPrompts": [
+    "The capital of a state is often not its most populous or famous city.",
+    "Many capitals were chosen for central geographic location or political compromise.",
+    "Always double-check the state abbreviation and the corresponding capital."
+  ]
+}

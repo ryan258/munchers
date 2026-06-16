@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Munchers Lab</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>Munchers Lab</h1>
+            <p id="libraryStatus">Loading library...</p>
+          </div>
+        </div>
+
+        <div class="mode-tabs" role="tablist" aria-label="Workspace mode">
+          <button id="playTab" class="tab is-active" type="button" role="tab" aria-selected="true" aria-controls="playPanel">
+            Play
+          </button>
+          <button id="contentTab" class="tab" type="button" role="tab" aria-selected="false" aria-controls="contentPanel">
+            Content
+          </button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section id="playPanel" class="play-layout" role="tabpanel" aria-labelledby="playTab">
+          <aside class="sidebar" aria-label="Lesson controls">
+            <label class="field-label" for="lessonSelect">Lesson</label>
+            <select id="lessonSelect"></select>
+
+            <div class="mission">
+              <p class="eyebrow">Target</p>
+              <h2 id="lessonTitle">Lesson</h2>
+              <p id="lessonPrompt">Select a lesson.</p>
+            </div>
+
+            <dl class="scoreboard" aria-label="Round status">
+              <div>
+                <dt>Munched</dt>
+                <dd id="scoreValue">0</dd>
+              </div>
+              <div>
+                <dt>Goal</dt>
+                <dd id="goalValue">0</dd>
+              </div>
+              <div>
+                <dt>Moves</dt>
+                <dd id="moveValue">0</dd>
+              </div>
+              <div>
+                <dt>Tries</dt>
+                <dd id="tryValue">0</dd>
+              </div>
+            </dl>
+
+            <div class="control-row">
+              <button id="munchButton" class="primary-action" type="button">Munch</button>
+              <button id="resetRoundButton" type="button">Reset</button>
+            </div>
+
+            <div class="palette" aria-label="Legend">
+              <span><i class="swatch player"></i> Muncher</span>
+              <span><i class="swatch correct"></i> Found</span>
+              <span><i class="swatch miss"></i> Check</span>
+            </div>
+          </aside>
+
+          <section class="board-zone" aria-label="Game board">
+            <div id="gridBoard" class="grid-board" role="grid" aria-label="Muncher grid"></div>
+            <div class="feedback-bar" role="status" aria-live="polite">
+              <span id="feedbackText">Ready.</span>
+            </div>
+          </section>
+
+          <aside class="notes-panel" aria-label="Lesson notes">
+            <p class="eyebrow">Round Notes</p>
+            <ul id="reflectionList"></ul>
+          </aside>
+        </section>
+
+        <section id="contentPanel" class="content-layout" role="tabpanel" aria-labelledby="contentTab" hidden>
+          <aside class="schema-panel" aria-label="Library summary">
+            <h2>Library</h2>
+            <dl class="library-stats">
+              <div>
+                <dt>Lessons</dt>
+                <dd id="lessonCount">0</dd>
+              </div>
+              <div>
+                <dt>Modes</dt>
+                <dd id="modeCount">0</dd>
+              </div>
+              <div>
+                <dt>Grid</dt>
+                <dd id="gridSummary">5 x 5</dd>
+              </div>
+            </dl>
+
+            <div class="schema-list">
+              <p class="eyebrow">Fields</p>
+              <code>id</code>
+              <code>title</code>
+              <code>mode</code>
+              <code>prompt</code>
+              <code>grid.rows</code>
+              <code>grid.cols</code>
+              <code>items[].label</code>
+              <code>items[].correct</code>
+            </div>
+          </aside>
+
+          <section class="editor-panel" aria-label="Content JSON editor">
+            <div class="editor-toolbar">
+              <label class="file-button" for="importFile">Import</label>
+              <input id="importFile" type="file" accept="application/json,.json" />
+              <button id="validateButton" type="button">Validate</button>
+              <button id="applyJsonButton" class="primary-action" type="button">Apply</button>
+              <button id="downloadJsonButton" type="button">Download</button>
+              <button id="resetLibraryButton" type="button">Restore</button>
+            </div>
+
+            <label class="field-label" for="jsonEditor">Lesson JSON</label>
+            <textarea id="jsonEditor" spellcheck="false"></textarea>
+            <p id="editorStatus" class="editor-status" role="status" aria-live="polite">Ready.</p>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
