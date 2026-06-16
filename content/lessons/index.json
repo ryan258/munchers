@@ -5,6 +5,7 @@
     "word-evidence.json",
     "lunfardo-porteno-castellano.json",
     "us-state-capitals.json",
-    "mtg-mana-base-math.json"
+    "mtg-mana-base-math.json",
+    "dnd-2024.json"
   ]
 }

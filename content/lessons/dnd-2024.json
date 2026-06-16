@@ -1,0 +1,143 @@
+{
+    "id": "dnd-2024-rule-mechanics",
+    "title": "D&D 2024 Rule Mechanics",
+    "mode": "rules-check",
+    "prompt": "Valid 2024 Revision Rules",
+    "targetDescription": "an official 2024 rules update or mechanic",
+    "grid": {
+        "rows": 5,
+        "cols": 5
+    },
+    "items": [
+        {
+            "label": "Grappled condition lowers speed to 0",
+            "correct": true,
+            "feedback": "Correct. The Grappled condition sets a creature's speed to 0 and gives disadvantage on attack rolls against targets other than the grappler."
+        },
+        {
+            "label": "Grappled gives disadvantage to other targets",
+            "correct": true,
+            "feedback": "Correct. A grappled creature now has disadvantage on attack rolls against anyone except the creature grappling it."
+        },
+        {
+            "label": "Weapon Mastery: Topple requires a Con save",
+            "correct": true,
+            "feedback": "Correct. The Topple mastery forces a Constitution saving throw or the target is knocked prone."
+        },
+        {
+            "label": "Weapon Mastery: Vex gives advantage next turn",
+            "correct": true,
+            "feedback": "Correct. Hitting with a Vex weapon grants advantage on your next attack roll against that target before the end of your next turn."
+        },
+        {
+            "label": "Monk Focus Points replace Ki Points",
+            "correct": true,
+            "feedback": "Correct. The 2024 Monk uses Focus Points instead of Ki Points to fuel their features."
+        },
+        {
+            "label": "Monk Unarmed Strike can use Dex for grapple",
+            "correct": true,
+            "feedback": "Correct. Monks can use Dexterity instead of Strength when setting the DC for their Grapple or Shove attempts."
+        },
+        {
+            "label": "Sorcerer Innate Sorcery grants spell DC bonus",
+            "correct": true,
+            "feedback": "Correct. Innate Sorcery gives a +1 bonus to your Sorcerer spell save DC and advantage on Sorcerer spell attack rolls."
+        },
+        {
+            "label": "Potions can be drunk as a Bonus Action",
+            "correct": true,
+            "feedback": "Correct. The 2024 rules codify that administering a potion to yourself is a Bonus Action; feeding it to someone else is an Action."
+        },
+        {
+            "label": "Surprise gives -5 to Initiative",
+            "correct": false,
+            "feedback": "Incorrect. Surprise no longer affects initiative; it now grants disadvantage on initiative rolls."
+        },
+        {
+            "label": "Surprise grants disadvantage on Initiative",
+            "correct": true,
+            "feedback": "Correct. If you are surprised when initiative is rolled, you have disadvantage on the roll."
+        },
+        {
+            "label": "Inspiration is lost on a Long Rest",
+            "correct": true,
+            "feedback": "Correct. Heroic Inspiration resets and is lost if unspent when you finish a Short or Long Rest."
+        },
+        {
+            "label": "Exhaustion adds a flat -1 per level",
+            "correct": true,
+            "feedback": "Correct. Exhaustion is now a single-track penalty, subtracting its level from d20 rolls and Spell DCs up to level 10."
+        },
+        {
+            "label": "Weapon Mastery: Nick allows extra off-hand attack",
+            "correct": true,
+            "feedback": "Correct. Nick lets you make the Light weapon extra attack as part of the Attack action rather than using your Bonus Action."
+        },
+        {
+            "label": "Counterspell forces a Con save",
+            "correct": true,
+            "feedback": "Correct. Counterspell now requires the target caster to succeed on a Constitution saving throw, or the spell fails and wastes the slot."
+        },
+        {
+            "label": "Paladin Divine Smite is a Bonus Action",
+            "correct": true,
+            "feedback": "Correct. Divine Smite is now a specific spell cast as a Bonus Action immediately after hitting a creature."
+        },
+        {
+            "label": "Critical hits double all rolled damage dice",
+            "correct": false,
+            "feedback": "Incorrect. While true, this is a legacy 2014 rule carried forward, not a 2024 mechanical revision or unique update."
+        },
+        {
+            "label": "Short Rest takes exactly 10 minutes",
+            "correct": false,
+            "feedback": "Incorrect. A Short Rest still requires 1 hour in the 2024 rules rules text."
+        },
+        {
+            "label": "Grapple escapes use an Action standard check",
+            "correct": false,
+            "feedback": "Incorrect. Escaping a grapple is now checked via a saving throw (Athletics or Acrobatics) at the end of the grappled creature's turn."
+        },
+        {
+            "label": "Weapon Mastery: Grapple forces an item drop",
+            "correct": false,
+            "feedback": "Incorrect. There is no 'Grapple' weapon mastery property. Property options include Sap, Slow, Push, etc."
+        },
+        {
+            "label": "Sorcerer Innate Sorcery costs 2 Sorcery Points",
+            "correct": false,
+            "feedback": "Incorrect. Innate Sorcery is a free feature usable twice per long rest, not powered by Sorcery Points."
+        },
+        {
+            "label": "Paladin Smite can be used multiple times per turn",
+            "correct": false,
+            "feedback": "Incorrect. Because it requires a Bonus Action, you can only use a Smite spell once per turn."
+        },
+        {
+            "label": "Inspiration allows a full d20 reroll",
+            "correct": false,
+            "feedback": "Incorrect. Heroic Inspiration must be spent *before* rolling to grant advantage, it is no longer an after-the-fact reroll."
+        },
+        {
+            "label": "Counterspell uses an automatic ability check",
+            "correct": false,
+            "feedback": "Incorrect. The caster standard ability check vs 10 + spell level was replaced with a target Constitution saving throw."
+        },
+        {
+            "label": "Exhaustion halves movement speed at level 2",
+            "correct": false,
+            "feedback": "Incorrect. Exhaustion levels subtract from rolls and reduce speed by 5 feet per level; speed is not halved at level 2."
+        },
+        {
+            "label": "Weapon Mastery: Vex auto-crits on next hit",
+            "correct": false,
+            "feedback": "Incorrect. Vex only grants advantage on the next attack roll, not an automatic critical hit."
+        }
+    ],
+    "reflectionPrompts": [
+        "The 2024 rules shift action economy constraints, specifically making Smites and Counterspell interactive via specific action/save types.",
+        "Weapon Masteries add distinct tactical choices to weapon properties, separating functional utility like Topple from action-savers like Nick.",
+        "Conditions like Grappled and Exhaustion have been simplified to predictable mathematical penalties to speed up tracking at the table."
+    ]
+}
