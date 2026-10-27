@@ -39,4 +39,25 @@ Each lesson file defines:
 - `items[].label`, `items[].correct`, and optional `items[].feedback`
 - optional `reflectionPrompts`
 
-The Content tab validates, applies, imports, downloads, and restores the combined lesson library. Applied edits are stored in the browser.
+The Content tab validates, applies, imports, downloads, recovers, and restores the combined lesson library:
+
+- **Browser persistence**: Applied edits are safely stored in browser `localStorage`.
+- **Fault tolerance**: If browser storage is disabled, quota-blocked, or corrupt, Munchers Lab preserves your current state and alerts you rather than dropping data.
+- **Data recovery**: If saved storage ever contains malformed JSON, the raw text is preserved and a "Download saved copy" button appears so you can recover your work before replacing it.
+- **Safety checks**: Restoring bundled lessons or replacing unreadable saved work requires confirmation to prevent accidental loss.
+
+See [`docs/storage.md`](docs/storage.md) for details on the storage contract and failure-handling model.
+
+## Testing
+
+Deterministic unit and integration tests run with the built-in Node.js test runner:
+
+```sh
+node --test tests/storage.test.cjs
+```
+
+## Documentation & Roadmap
+
+- [`docs/system-prompt.md`](docs/system-prompt.md): Prompt template for generating compliant lesson JSON with an LLM.
+- [`docs/storage.md`](docs/storage.md): Browser storage persistence, error recovery, and quota handling.
+- [`roadmap.md`](roadmap.md): Current capabilities and planned enhancements.
