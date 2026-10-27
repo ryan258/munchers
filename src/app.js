@@ -154,6 +154,7 @@ const elements = {
   validateButton: document.querySelector("#validateButton"),
   applyJsonButton: document.querySelector("#applyJsonButton"),
   downloadJsonButton: document.querySelector("#downloadJsonButton"),
+  downloadSavedLibraryButton: document.querySelector("#downloadSavedLibraryButton"),
   resetLibraryButton: document.querySelector("#resetLibraryButton"),
   jsonEditor: document.querySelector("#jsonEditor"),
   editorStatus: document.querySelector("#editorStatus")
@@ -161,6 +162,8 @@ const elements = {
 
 const state = {
   library: structuredClone(DEFAULT_LIBRARY),
+  savedLibraryRaw: null,
+  savedLibraryInvalid: false,
   selectedLessonId: DEFAULT_LIBRARY.lessons[0].id,
   roundLessonId: DEFAULT_LIBRARY.lessons[0].id,
   roundItems: [],
@@ -193,6 +196,7 @@ function bindEvents() {
   elements.validateButton.addEventListener("click", validateEditor);
   elements.applyJsonButton.addEventListener("click", applyEditorJson);
   elements.downloadJsonButton.addEventListener("click", downloadJson);
+  elements.downloadSavedLibraryButton.addEventListener("click", downloadSavedLibrary);
   elements.resetLibraryButton.addEventListener("click", restoreLibrary);
   elements.importFile.addEventListener("change", importJson);
 
@@ -226,22 +230,32 @@ function bindEvents() {
 
 async function loadLibrary() {
   const bundled = await loadBundledLibrary();
-  const stored = localStorage.getItem(STORAGE_KEY);
+  let stored;
+  try {
+    stored = localStorage.getItem(STORAGE_KEY);
+  } catch (error) {
+    console.warn(error);
+    elements.libraryStatus.textContent = "Storage unavailable; bundled library";
+    elements.editorStatus.textContent = "Browser storage is unavailable. Download edits to keep them.";
+    return bundled;
+  }
 
-  if (stored) {
+  state.savedLibraryRaw = stored;
+  state.savedLibraryInvalid = false;
+  elements.downloadSavedLibraryButton.hidden = stored === null;
+  if (stored !== null) {
     try {
-      const parsed = JSON.parse(stored);
-      const validated = validateLibrary(parsed);
+      const validated = validateLibrary(JSON.parse(stored));
       const merged = mergeMissingLessons(validated, bundled);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
       elements.libraryStatus.textContent = "Browser library";
       return merged;
     } catch (error) {
       console.warn(error);
-      localStorage.removeItem(STORAGE_KEY);
+      state.savedLibraryInvalid = true;
+      elements.libraryStatus.textContent = "Saved library needs recovery; bundled lessons loaded";
+      elements.editorStatus.textContent = "Saved content was kept. Download saved copy before replacing it.";
     }
   }
-
   return bundled;
 }
 
@@ -654,38 +668,74 @@ function validateEditor() {
 }
 
 function applyEditorJson() {
+  let validated;
   try {
-    const parsed = JSON.parse(elements.jsonEditor.value);
-    const validated = validateLibrary(parsed);
-    state.library = validated;
-    state.selectedLessonId = validated.lessons[0].id;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(validated));
-    elements.libraryStatus.textContent = "Browser library";
-    elements.editorStatus.textContent = "Applied.";
-    resetRound();
-    syncEditor();
+    validated = validateLibrary(JSON.parse(elements.jsonEditor.value));
   } catch (error) {
     elements.editorStatus.textContent = `Invalid: ${error.message}`;
+    return;
+  }
+  if (state.savedLibraryInvalid && !confirm("Replace the unreadable saved library? Download saved copy first if you need to recover it.")) {
+    elements.editorStatus.textContent = "Not applied. Saved content was preserved.";
+    return;
+  }
+  const raw = JSON.stringify(validated);
+  try {
+    localStorage.setItem(STORAGE_KEY, raw);
+  } catch (error) {
+    elements.editorStatus.textContent = "Valid, but not saved. Existing library is unchanged. Download edits to keep them.";
+    return;
+  }
+  state.library = validated;
+  state.selectedLessonId = validated.lessons[0].id;
+  state.savedLibraryRaw = raw;
+  state.savedLibraryInvalid = false;
+  elements.downloadSavedLibraryButton.hidden = false;
+  elements.libraryStatus.textContent = "Browser library";
+  elements.editorStatus.textContent = "Applied and saved.";
+  resetRound();
+  syncEditor();
+}
+
+function downloadText(raw, filename) {
+  const blob = new Blob([raw], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.append(link);
+  try {
+    link.click();
+  } finally {
+    link.remove();
+    URL.revokeObjectURL(url);
   }
 }
 
 function downloadJson() {
-  const blob = new Blob([elements.jsonEditor.value], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "munchers-lessons.json";
-  document.body.append(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(url);
+  downloadText(elements.jsonEditor.value, "munchers-lessons.json");
   elements.editorStatus.textContent = "Download started.";
 }
 
+function downloadSavedLibrary() {
+  if (state.savedLibraryRaw === null) return;
+  downloadText(state.savedLibraryRaw, "munchers-saved-library-recovery.json");
+  elements.editorStatus.textContent = "Saved copy download started. It contains the original stored text.";
+}
+
 async function restoreLibrary() {
-  localStorage.removeItem(STORAGE_KEY);
+  if (!confirm("Restore bundled lessons and remove the browser library? Download your current or saved copy first if you want to keep it.")) return;
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {
+    elements.editorStatus.textContent = "Not restored: browser storage could not be cleared. Existing library was kept.";
+    return;
+  }
   state.library = await loadBundledLibrary();
   state.selectedLessonId = state.library.lessons[0].id;
+  state.savedLibraryRaw = null;
+  state.savedLibraryInvalid = false;
+  elements.downloadSavedLibraryButton.hidden = true;
   syncEditor();
   resetRound();
   elements.editorStatus.textContent = "Restored bundled lessons.";
